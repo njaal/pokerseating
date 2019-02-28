@@ -10,6 +10,9 @@ interface PokerTableState {
 class Pokertable extends Component<PokerTableProps, PokerTableState> {
     constructor(props: PokerTableProps) {
         super(props);
+        this.randomize = this.randomize.bind(this);
+        this.changePlayerName = this.changePlayerName.bind(this);
+
         this.state = {
             players: Array(8).fill(""),
         };
@@ -21,6 +24,26 @@ class Pokertable extends Component<PokerTableProps, PokerTableState> {
         this.setState({ players });
     }
 
+    randomize(event: any) {
+        let array = this.state.players;
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        this.setState({ players: array });
+    }
+
     render() {
         return (
             <div>
@@ -30,6 +53,7 @@ class Pokertable extends Component<PokerTableProps, PokerTableState> {
                     })}
                 </div>
                 <div className="pokertable">
+                    <button className="randomize-button" onClick={this.randomize}>Randomize</button>
                     {this.state.players.map((player, i) => {
                         return (<div className={"player-name player" + i} key={i}>{player}</div>)
                     })}
