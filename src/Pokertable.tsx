@@ -14,7 +14,7 @@ class Pokertable extends Component<PokerTableProps, PokerTableState> {
         this.changePlayerName = this.changePlayerName.bind(this);
 
         this.state = {
-            players: Array(8).fill(""),
+            players: Array(9).fill(""),
         };
     }
 

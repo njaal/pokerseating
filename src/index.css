@@ -60,6 +60,11 @@ code {
     left: 67%;
 }
 
+.player-name.player8 {
+    top: 69%;
+    left: 42%;
+}
+
 .randomize-button{
   position: absolute;
   top: 50%;
