@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ReactGA from 'react-ga';
 
 interface PokerTableProps {
 }
@@ -25,6 +26,10 @@ class Pokertable extends Component<PokerTableProps, PokerTableState> {
     }
 
     randomize(event: any) {
+        ReactGA.event({
+            category: 'User',
+            action: 'Randomize'
+          });
         let array = this.state.players;
         var currentIndex = array.length, temporaryValue, randomIndex;
 
