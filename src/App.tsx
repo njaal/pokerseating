@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Pokertable from './Pokertable';
 import ReactGA from 'react-ga';
+import "./style.scss";
 
 class App extends Component {
 
@@ -12,6 +12,7 @@ class App extends Component {
     ReactGA.pageview('/homepage');
     return (
       <div className="App">
+        <h2>Enter player names</h2>
         <Pokertable></Pokertable>
       </div>
     );

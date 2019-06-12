@@ -29,7 +29,7 @@ class Pokertable extends Component<PokerTableProps, PokerTableState> {
         ReactGA.event({
             category: 'User',
             action: 'Randomize'
-          });
+        });
         let array = this.state.players;
         var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -54,13 +54,13 @@ class Pokertable extends Component<PokerTableProps, PokerTableState> {
             <div>
                 <div>
                     {this.state.players.map((player, i) => {
-                        return (<input key={i} type="text" value={player} onChange={(e) => this.changePlayerName(e, i)}></input>)
+                        return (<input className="player-input" key={i} type="text" value={player} onChange={(e) => this.changePlayerName(e, i)}></input>)
                     })}
                 </div>
                 <div className="pokertable">
                     <button className="randomize-button" onClick={this.randomize}>Randomize</button>
                     {this.state.players.map((player, i) => {
-                        return (<div className={"player-name player" + i} key={i}>{player}</div>)
+                        return (<div className={"player-name player" + i} key={i}>{player != "" ? `${i+1}. ` : ""}{player}</div>)
                     })}
                     <svg viewBox="0 0 512 275" xmlns="http://www.w3.org/2000/svg">
                         <path fill="none" d="M-1-1h514v277H-1z" />
